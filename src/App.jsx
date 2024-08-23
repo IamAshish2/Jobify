@@ -9,12 +9,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainLayout/>}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="jobs" element={<JobsPage/>} />
-          <Route path="jobs/:id" element={<JobPage/>} />
+          <Route path="jobs" element={<JobsPage />} />
+          <Route path="jobs/:id" element={<JobPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage/>} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
