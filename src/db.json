@@ -82,5 +82,12 @@
         "contactPhone": "555-555-5555"
       }
     }
-  ]
+  ],
+  "user": {
+    "name": "Ashish karki",
+    "jobTitle": "Software Developer",
+    "location": "New York, USA",
+    "bio": "Experienced developer with a passion for building web applications.",
+    "profilePicture": "/src/assets/profile.jpg"
+  }
 }
