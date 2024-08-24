@@ -1,5 +1,6 @@
 import React from 'react';
-import loginPhoto from '../../assets/background.jpg';
+import loginPhoto from '../../assets/signin.png';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -29,6 +30,7 @@ const Login = () => {
             >
               Login
             </button>
+            <p>Don't have an account? <Link className='text-blue-500 font-bold underline' to={"/signup"}>Sign up</Link></p>
           </form>
         </div>
       </div>
