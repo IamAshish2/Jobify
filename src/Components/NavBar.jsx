@@ -56,14 +56,14 @@ const NavBar = () => {
         </div>
       </nav>
       {profileClicked && (
-        <div className="w-40 flex flex-col h-auto rounded-lg absolute right-16 top-16 bg-white shadow-lg border border-gray-200">
+        <div className="w-40 p-2 flex flex-col h-auto rounded-lg absolute right-16 top-16 bg-white shadow-lg border border-gray-200">
           <button
             onClick={() => {
               handleClick();
             }}
-            className="p-3 text-left hover:bg-indigo-50 text-indigo-700"
+            className="p-2 text-left hover:bg-indigo-50 text-indigo-700"
           >
-            <Link to="/profile" className="w-full h-full block">Go To Profile</Link>
+            <Link to="/profile" className=" rounded-xl w-full h-full block">Go To Profile</Link>
           </button>
           <button
             onClick={() => {

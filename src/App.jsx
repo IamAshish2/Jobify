@@ -7,35 +7,32 @@ import JobPage from "./Pages/JobPage";
 import AddJobPage from "./Pages/AddJobPage";
 import Profile from "./Pages/User/Profile";
 import Login from "./Pages/auth/Login";
-import axios from "axios";
 import Signup from "./Pages/auth/Signup";
 import EditUserProfile from "./Pages/User/EditUserProfile";
 import AccountSettings from "./Pages/User/AccountSettings";
+import { addJob, editProfile, deleteJob } from "./Service/service";
+import RedirectIfAuthenticated from "./Protected/RedirectIfAuthenticated";
 
 function App() {
-  //add job
-  const addJob = async (newJob) => {
-    const res = await axios.post("http://localhost:8000/jobsData", newJob);
-    console.log(res);
-  };
-
-  // delete  job request
-  const deleteJob = async (id) => {
-    const res = await axios.delete(`http://localhost:8000/jobsData/${id}`);
-    console.log(res);
-  };
-
-  const editProfile = async(editedProfile) => {
-    const res = await axios.put("http://localhost:8000/user",editedProfile);
-    console.log(res);
-  }
-
-
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/login"
+          element={
+            <RedirectIfAuthenticated>
+              <Login />
+            </RedirectIfAuthenticated>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <RedirectIfAuthenticated>
+              <Signup />
+            </RedirectIfAuthenticated>
+          }
+        />
 
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
@@ -46,8 +43,11 @@ function App() {
             element={<AddJobPage addJobSubmit={addJob} />}
           />
           <Route path="profile" element={<Profile />} />
-          <Route path="profile/edit/:id" element={<EditUserProfile  editProfile={editProfile}/>} />
-          <Route path="profile/settings" element={<AccountSettings/>}/>
+          <Route
+            path="profile/edit/:id"
+            element={<EditUserProfile editProfile={editProfile} />}
+          />
+          <Route path="profile/settings" element={<AccountSettings />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
